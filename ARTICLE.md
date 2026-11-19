@@ -92,6 +92,26 @@ But it is important not to overstate the evidence. This article does **not** sho
 
 The same technology can also help defenders: analysts can use AI to review suspicious code, investigate incidents, and identify weaknesses before attackers exploit them.
 
+## The Same Technology Can Help Stop Attacks
+
+For all the concerns surrounding AI-assisted cybercrime, there is another side to the story: many of the capabilities that make these systems useful to attackers are equally valuable to the people trying to stop them.
+
+A model capable of understanding malicious code can also help a security researcher analyze it. A system that identifies weaknesses in software can help developers fix those weaknesses before criminals exploit them. And tools that automate complex technical tasks can allow security teams to investigate threats faster than they could manually.
+
+For example, a cybersecurity researcher examining a suspicious program might use AI to understand what it does without having to analyze every line of code independently. A company could use similar technology to examine its own applications for security flaws, test potential fixes, or investigate unusual activity on its network.
+
+These are not hypothetical categories of work. AI-assisted code review, threat analysis, and authorized security testing are already areas of active development.
+
+This raises an important distinction: **the ability to understand or reproduce a cyberattack is not inherently malicious**. In many cases, defenders need to understand how an attack works in order to prevent it.
+
+The concern is not simply that powerful cybersecurity models exist. It is that increasingly capable systems are becoming easier to access, easier to operate, and easier to connect to tools that can perform real-world actions.
+
+That accessibility can benefit independent researchers, students, and smaller organizations that cannot afford large security teams. But it can also reduce the technical expertise and effort required by someone intending to cause harm.
+
+The challenge, then, is not necessarily to make AI less capable. It is to find ways to make its capabilities useful for legitimate security work while limiting opportunities for misuse.
+
+As these systems become more powerful, that balance may prove just as important as the technology itself.
+
 ## The question the industry now faces
 
 The important shift may be from **AI that answers** to **AI that helps complete a task**.
