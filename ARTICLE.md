@@ -54,7 +54,7 @@ This does not establish that all open-weight releases are irresponsible. Open ac
 
 The same underlying model family may appear in multiple quantizations, instruction fine-tunes, merges, and serving stacks. Prompt templates, system instructions, sampling settings, context management, and connected tools can alter observed behavior. Therefore a claim about “XORTRON” must eventually identify the exact model repository, revision, and runtime configuration. Those details are not yet available for the original experiment.
 
-## 4. Model modification, jailbreaks, frameworks, and harnesses: distinct layers of cyber risk
+## 3. Model modification, jailbreaks, frameworks, and harnesses: distinct layers of cyber risk
 
 Security discussions often group “uncensored models,” security fine-tunes, jailbreaks, and autonomous agents together. This obscures important differences. Some techniques change the model itself, some change the instructions it receives, and others connect its outputs to tools capable of acting in an environment. The resulting risk depends on **technical competence, willingness to comply, workflow coordination, and execution privileges**—none of which should be assumed from the others.
 
@@ -66,7 +66,7 @@ Security discussions often group “uncensored models,” security fine-tunes, j
 | **Agent framework** | Planning, task delegation, state management, and orchestration of one or more models and tools | Can coordinate lengthy authorized assessments or, when misused, intrusion workflows | An agent framework is not itself a foundation model or a guarantee of autonomy |
 | **Agent harness** | Runtime interfaces, tool adapters, context assembly, permissions, execution and feedback | Determines whether suggestions become terminal, browser, filesystem, or network actions | Tool availability does not mean the agent has unlimited permission or reliable judgment |
 
-### 4.1 Abliteration versus fine-tuning
+### 3.1 Abliteration versus fine-tuning
 
 *Abliteration* is a term used for techniques that modify model representations associated with refusal behavior, often using directional interventions in activation or weight space. It is not synonymous with training a model to become more technically capable. A model may become more compliant while remaining equally error-prone—or become less reliable after modification. The term is used inconsistently across model releases, so publishers' claims of being “uncensored” or “abliterated” should not be treated as standardized evaluation results.
 
@@ -74,19 +74,19 @@ Security discussions often group “uncensored models,” security fine-tunes, j
 
 A model can be both fine-tuned and abliterated. These are not mutually exclusive categories.
 
-### 4.2 Jailbreak prompts versus locally modified models
+### 3.2 Jailbreak prompts versus locally modified models
 
 A jailbreak attempts to induce behavior through the input channel without altering the model's weights. A locally modified model may instead have had behavioral safeguards weakened before any prompt is entered. Both can affect observed refusal rates, but they present different mitigation problems. Prompt-injection defenses, input handling, and instruction hierarchies cannot be assumed to restore a safeguard removed from a local checkpoint.
 
 **Relevance to the XORTRON case study:** the researcher reports that the long interaction was driven mainly by code debugging rather than refusal circumvention. This should not be recast as a jailbreak success. It is an observation about the tested configuration's behavior, pending transcript review.
 
-### 4.3 Frameworks versus harnesses
+### 3.3 Frameworks versus harnesses
 
 An **agent framework** typically supplies workflow abstractions: planners, worker roles, memory, task routing, and retry logic. A **harness** is the practical execution substrate: model invocation, context packaging, terminal or browser adapters, test runners, permissions, and feedback. Real projects frequently combine both, and vendors use the terms inconsistently.
 
 This distinction explains the relevance of ARTEX. A capable language model can suggest actions, but an agentic system can arrange for permitted tools to perform them and use the results to choose further actions. The consequential security boundary is therefore often in the harness: which credentials, hosts, files, and commands it can reach, and whether actions require human approval.
 
-### 4.4 Combinations and cumulative risk
+### 3.4 Combinations and cumulative risk
 
 These approaches can be stacked. A specialized fine-tune may be modified to reduce refusals, instructed through ordinary or adversarial prompts, coordinated by a planning model, and connected to a tool harness. Each layer changes a different property. It would be misleading to claim that any particular combination is necessarily more effective or dangerous without controlled testing.
 
@@ -96,7 +96,7 @@ A useful conceptual expression is:
 
 This is a framework for analysis, **not** a numerical risk score or validated equation.
 
-### 4.5 How to evaluate them responsibly
+### 3.5 How to evaluate them responsibly
 
 Single-prompt refusal rates measure only one dimension. A stronger evaluation would separate:
 
