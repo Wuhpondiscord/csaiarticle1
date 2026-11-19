@@ -40,6 +40,14 @@ This is a **retrospective, exploratory single-case study** supplemented by a **n
 
 The primary case is reconstructed from the researcher's narrative supplied after the experiment. It is vulnerable to recall and selection bias. The original prompts, model outputs, timestamps, revisions, tool logs, and artifacts were not available for independent coding at the time of drafting. Accordingly, terms such as *worked*, *completed*, and *tested* in the case study mean **reported by the researcher** unless specifically supported by a deposited record.
 
+### Public interface used in the original case
+
+The researcher identifies the public Hugging Face Space **[darkc0de/chat](https://huggingface.co/spaces/darkc0de/chat?not-for-all-audiences=true)** as the interface used for the XORTRON experiment. At manuscript revision on November 19, 2026, the Space resolved to an application titled **XORTRON — Criminal Computing**, which displayed an authorized-use agreement and FAST, SMART, and agent-tool interface options. The application is publicly accessible, but its agreement expressly prohibits unlawful misuse and unauthorized intrusions. [Public application](https://darkc0de-chat.hf.space/).
+
+This link identifies the **service used**, not an immutable model checkpoint or independently validated reproduction package. The precise backend model revision, routing mode used during the original session, system instructions, sampling parameters, and historical tool configuration remain undocumented. The application may change after publication, and researchers cannot assume that its present responses reproduce historical outputs.
+
+The author deliberately withholds the original potentially misusable generated files. Interested researchers can inspect the publicly accessible service under its authorized-use terms and design **benign, non-deployable analogue tasks** to evaluate comparable reasoning, debugging, and integration behavior. Access to the service alone does not establish replication of the original outcome.
+
 ### Data sources and extraction protocol
 
 **Primary case:** researcher account describing the starting encoded sample, iterative server and front-end development, revisions, website generation, RPC troubleshooting, notification integration, hosting recommendations, and isolated-lab test. No other malicious-tooling category was personally tested.
@@ -381,7 +389,7 @@ A frontier-model planner directing a specialized model is a plausible next resea
 
 ## Research transparency and publication declarations
 
-**Data availability and responsible withholding:** The author has elected **not to publish the executable files produced by XORTRON**, because they could facilitate misuse. This includes functional malicious client components, command-and-control implementations, and operational integration artifacts. This is an intentional research-safety restriction, not an assertion that the artifacts never existed. Where feasible, the author may provide non-executable evidence such as redacted interaction excerpts, test assertions, screenshots, synthetic-event traces, hashes of retained artifacts, and environment metadata. Hashes establish correspondence to retained files but do not independently prove their functionality. Any confidential review access would require separate author consent and appropriate safeguards; no access is currently promised. The exact checkpoint, underlying transcripts, and lab logs have not yet been deposited. Consequently, independent replication of the original harmful workflow is neither enabled nor claimed.
+**Public model interface:** [XORTRON Hugging Face Space — darkc0de/chat](https://huggingface.co/spaces/darkc0de/chat?not-for-all-audiences=true). The interface is a live service rather than a fixed experimental artifact; future behavior may differ. Researchers must comply with its authorized-use agreement.\n\n**Data availability and responsible withholding:** The author has elected **not to publish the executable files produced by XORTRON**, because they could facilitate misuse. This includes functional malicious client components, command-and-control implementations, and operational integration artifacts. This is an intentional research-safety restriction, not an assertion that the artifacts never existed. Where feasible, the author may provide non-executable evidence such as redacted interaction excerpts, test assertions, screenshots, synthetic-event traces, hashes of retained artifacts, and environment metadata. Hashes establish correspondence to retained files but do not independently prove their functionality. Any confidential review access would require separate author consent and appropriate safeguards; no access is currently promised. The exact checkpoint, underlying transcripts, and lab logs have not yet been deposited. Consequently, independent replication of the original harmful workflow is neither enabled nor claimed.
 
 **Code availability:** The author will not publicly release the potentially misusable files generated during the experiment. The GitHub repository contains the manuscript, not an operational replication package. A future benign substitute or test fixture could support reproducibility without disclosing the original executable artifacts.
 
@@ -416,6 +424,6 @@ The links below identify primary sources or project resources. Exact quotations,
 2. FBI Internet Crime Complaint Center, *ARTEX advisory*, November 13, 2026: https://www.ic3.gov/CSA/2026/261113.pdf
 3. Cloudflare, *Adapting to AI Penetration Testing Orchestrators* (2026): https://blog.cloudflare.com/adapting-to-ai-penetration-testing-orchestrators/
 4. Google Cloud / Google Threat Intelligence Group, *Agentic Threat Activity Crosses a Significant Threshold* (2026): https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold
-5. XORTRON project resources on Hugging Face: https://huggingface.co/xortron
-6. ARTEX community source code (verify maintainer and revision before citing implementation details): https://github.com/CyberRoute/artex
+5. XORTRON public application used by the researcher, *darkc0de/chat* (accessed November 19, 2026): https://huggingface.co/spaces/darkc0de/chat?not-for-all-audiences=true\n6. XORTRON project resources on Hugging Face: https://huggingface.co/xortron
+7. ARTEX community source code (verify maintainer and revision before citing implementation details): https://github.com/CyberRoute/artex
 
