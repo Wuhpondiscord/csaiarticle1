@@ -381,9 +381,9 @@ A frontier-model planner directing a specialized model is a plausible next resea
 
 ## Research transparency and publication declarations
 
-**Data availability:** The underlying XORTRON transcripts, exact model/checkpoint identifier, generated artifacts, and lab logs are not publicly available with this manuscript. A sanitized evidence package would be needed to permit independent scrutiny; unsafe executable components should not be distributed.
+**Data availability and responsible withholding:** The author has elected **not to publish the executable files produced by XORTRON**, because they could facilitate misuse. This includes functional malicious client components, command-and-control implementations, and operational integration artifacts. This is an intentional research-safety restriction, not an assertion that the artifacts never existed. Where feasible, the author may provide non-executable evidence such as redacted interaction excerpts, test assertions, screenshots, synthetic-event traces, hashes of retained artifacts, and environment metadata. Hashes establish correspondence to retained files but do not independently prove their functionality. Any confidential review access would require separate author consent and appropriate safeguards; no access is currently promised. The exact checkpoint, underlying transcripts, and lab logs have not yet been deposited. Consequently, independent replication of the original harmful workflow is neither enabled nor claimed.
 
-**Code availability:** No executable research code is released with this manuscript. The GitHub article is a manuscript repository, not a replication package.
+**Code availability:** The author will not publicly release the potentially misusable files generated during the experiment. The GitHub repository contains the manuscript, not an operational replication package. A future benign substitute or test fixture could support reproducibility without disclosing the original executable artifacts.
 
 **Funding:** Not reported; author confirmation required.
 
@@ -398,8 +398,8 @@ A frontier-model planner directing a specialized model is a plausible next resea
 ## Required items before scholarly submission
 
 - [ ] Identify the exact XORTRON model, repository revision, quantization, inference stack, prompt template, and relevant sampling settings.
-- [ ] Preserve and redact a timestamped interaction transcript and revision history; separate contemporaneous evidence from retrospective recollection.
-- [ ] Supply a benign laboratory replication with predefined acceptance tests, negative controls, and logs demonstrating each claimed functional result.
+- [ ] Preserve a private, timestamped interaction transcript and revision history; publish only safely redacted excerpts and distinguish contemporaneous evidence from retrospective recollection.
+- [ ] If feasible, supply a benign, non-deployable laboratory analogue with predefined acceptance tests, negative controls, and sanitized logs; do not release the original harmful implementation.
 - [ ] Establish whether the notification path was verified end-to-end using synthetic events; do not imply it without evidence.
 - [ ] Document the lab topology, network isolation, test-only credentials, software versions, and authorization.
 - [ ] Complete an incident-source ledger and fact-check all ARTEX statistics, attribution, dates, and overlapping campaigns against primary documents.
