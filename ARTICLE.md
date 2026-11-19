@@ -38,13 +38,13 @@
 
 This is a **retrospective, exploratory single-case study** supplemented by a **narrative documentary review**, not a controlled trial, systematic literature review, prevalence estimate, or benchmark. The primary unit of analysis is one researcher–model interaction and its reported integration workflow. The documentary unit is a set of public incident reports; multiple vendors may describe overlapping campaigns.
 
-The primary case is reconstructed from the researcher's narrative supplied after the experiment. It is vulnerable to recall and selection bias. The original prompts, model outputs, timestamps, revisions, tool logs, and artifacts were not available for independent coding at the time of drafting. Accordingly, terms such as *worked*, *completed*, and *tested* in the case study mean **reported by the researcher** unless specifically supported by a deposited record.
+The primary case is reconstructed from the researcher's narrative supplied after the experiment. It is vulnerable to recall and selection bias. The researcher reports independently conducting functional validation of the generated system in an isolated lab. This is **researcher-performed validation**, not external independent replication. The original prompts, model outputs, timestamps, revisions, tool logs, and artifacts were not available for external review at the time of drafting. Accordingly, terms such as *worked*, *completed*, and *tested* in the case study mean **reported by the researcher** unless specifically supported by a deposited record.
 
 ### Public interface used in the original case
 
 The researcher identifies the public Hugging Face Space **[darkc0de/chat](https://huggingface.co/spaces/darkc0de/chat?not-for-all-audiences=true)** as the interface used for the XORTRON experiment. At manuscript revision on November 19, 2026, the Space resolved to an application titled **XORTRON — Criminal Computing**, which displayed an authorized-use agreement and FAST, SMART, and agent-tool interface options. The application is publicly accessible, but its agreement expressly prohibits unlawful misuse and unauthorized intrusions. [Public application](https://darkc0de-chat.hf.space/).
 
-This link identifies the **service used**, not an immutable model checkpoint or independently validated reproduction package. The precise backend model revision, routing mode used during the original session, system instructions, sampling parameters, and historical tool configuration remain undocumented. The application may change after publication, and researchers cannot assume that its present responses reproduce historical outputs.
+This link identifies the **service used**, not an immutable model checkpoint or independently validated reproduction package. The researcher identifies **SMART mode** as the interface option used during the original session. The precise backend model revision, SMART-mode routing implementation at the time, system instructions, sampling parameters, and historical tool configuration remain undocumented. The application may change after publication, and researchers cannot assume that its present responses reproduce historical outputs.
 
 The author deliberately withholds the original potentially misusable generated files. Interested researchers can inspect the publicly accessible service under its authorized-use terms and design **benign, non-deployable analogue tasks** to evaluate comparable reasoning, debugging, and integration behavior. Access to the service alone does not establish replication of the original outcome.
 
@@ -405,7 +405,7 @@ A frontier-model planner directing a specialized model is a plausible next resea
 
 ## Required items before scholarly submission
 
-- [ ] Identify the exact XORTRON model, repository revision, quantization, inference stack, prompt template, and relevant sampling settings.
+- [x] Identify the public XORTRON interface and user-selected mode (darkc0de/chat, SMART).\n- [ ] Identify the backend model revision, quantization, inference stack, prompt template, and relevant sampling settings if these can be obtained from the Space operator.
 - [ ] Preserve a private, timestamped interaction transcript and revision history; publish only safely redacted excerpts and distinguish contemporaneous evidence from retrospective recollection.
 - [ ] If feasible, supply a benign, non-deployable laboratory analogue with predefined acceptance tests, negative controls, and sanitized logs; do not release the original harmful implementation.
 - [ ] Establish whether the notification path was verified end-to-end using synthetic events; do not imply it without evidence.
