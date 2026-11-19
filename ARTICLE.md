@@ -2,7 +2,7 @@
 ## Open-Weight Cybersecurity Models, Autonomous Agents, and the Changing Economics of Cyber Operations
 
 **Research article — working draft v0.2**  
-**Author:** wuhp  
+**Author:** user4545456 
 **Date:** November 19, 2026  
 **Status:** Draft for review; not a peer-reviewed study
 
