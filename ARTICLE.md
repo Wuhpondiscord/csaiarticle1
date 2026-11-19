@@ -348,17 +348,3 @@ The links below identify primary sources or project resources. Exact quotations,
 5. XORTRON project resources on Hugging Face: https://huggingface.co/xortron
 6. ARTEX community source code (verify maintainer and revision before citing implementation details): https://github.com/CyberRoute/artex
 
-## Editorial checklist for publication
-
-- [ ] Identify the exact XORTRON checkpoint, quantization, and inference environment.
-- [ ] Add experiment dates, prompt count, elapsed time, and hardware details.
-- [ ] Define and document what “fully completed” meant in functional tests.
-- [ ] Separate generated infrastructure code from infrastructure actually executed.
-- [ ] Document detection-related claims without releasing evasion instructions.
-- [ ] Attach redacted transcripts and hashes of research artifacts where appropriate.
-- [ ] Independently verify dates and claims in ARTEX threat reporting.
-- [ ] Add a controlled benign replication and, if feasible, multi-run statistics.
-- [ ] Clarify whether publication is intended as an opinion article, case study, or technical research report.
-- [ ] Add primary technical references for abliteration, fine-tuning, prompt injection, and agent evaluation; distinguish published research from model-card marketing.
-- [ ] Verify that ARTEX incidents are not double-counted across vendor reports and check every quantitative claim against primary sources.
-- [ ] Obtain permission to publish any original experiment artifacts and redact credentials, endpoints, personal information, and operationally harmful material.
