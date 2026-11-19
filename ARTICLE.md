@@ -112,6 +112,14 @@ The next question is not simply what an AI model will say. It is what people—a
 
 This article combines the author's account of a controlled XORTRON experiment, static examination of one researcher-supplied backend listing, and reporting published by outside cybersecurity organizations. The experiment's full logs and executable files are not public; its claimed end-to-end success has not been independently reproduced for this article. The backend was reviewed as source code, not executed. No potentially misusable implementation is reproduced here.
 
+### Media Inquiries and Independent Verification
+
+Journalists interested in investigating the findings described in this article can contact the researcher on **Discord: @wuhp**.
+
+The researcher can discuss the experimental methodology, provide additional context, and arrange a **controlled, non-operational demonstration** in a safe laboratory environment. Selected redacted source-code excerpts and technical evidence may be considered for review on a case-by-case basis.
+
+Because the original experiment involved potentially misusable software, executable artifacts, complete operational implementations, and raw logs are **not publicly distributed**. Journalists must establish their identity and affiliation through an independently verifiable professional channel before any nonpublic material is considered for disclosure. Verification does not automatically grant access to sensitive artifacts.
+
 ### Sources and further reading
 
 - [XORTRON public Hugging Face application used in the experiment](https://huggingface.co/spaces/darkc0de/chat?not-for-all-audiences=true)
