@@ -1,7 +1,7 @@
 # From Prompts to Payloads
 ## Open-Weight Cybersecurity Models, Autonomous Agents, and the Changing Economics of Cyber Operations
 
-**Research article — working draft v0.1**  
+**Research article — working draft v0.2**  
 **Author:** wuhp  
 **Date:** November 19, 2026  
 **Status:** Draft for review; not a peer-reviewed study
@@ -54,19 +54,76 @@ This does not establish that all open-weight releases are irresponsible. Open ac
 
 The same underlying model family may appear in multiple quantizations, instruction fine-tunes, merges, and serving stacks. Prompt templates, system instructions, sampling settings, context management, and connected tools can alter observed behavior. Therefore a claim about “XORTRON” must eventually identify the exact model repository, revision, and runtime configuration. Those details are not yet available for the original experiment.
 
-## 3. ARTEX: From model output to agentic execution
+## 4. Model modification, jailbreaks, frameworks, and harnesses: distinct layers of cyber risk
+
+Security discussions often group “uncensored models,” security fine-tunes, jailbreaks, and autonomous agents together. This obscures important differences. Some techniques change the model itself, some change the instructions it receives, and others connect its outputs to tools capable of acting in an environment. The resulting risk depends on **technical competence, willingness to comply, workflow coordination, and execution privileges**—none of which should be assumed from the others.
+
+| Category | Mechanism | Cybersecurity relevance | What it does **not** establish |
+| --- | --- | --- | --- |
+| **Security fine-tuning** | Additional training or parameter-efficient adaptation on selected data | Can improve security analysis, code understanding, defensive workflows, or domain-specific response patterns | Fine-tuning alone does not prove offensive effectiveness or reduced safeguards |
+| **Abliteration / refusal modification** | Weight-space interventions intended to attenuate refusal-associated representations | May increase willingness to answer security-sensitive requests | Does not necessarily add knowledge, reasoning skill, or reliable task completion; can impair quality |
+| **Jailbreak prompting** | Adversarial or manipulative instructions within prompts or retrieved content | Tests the resilience of behavioral safeguards and instruction boundaries | Does not change model weights and is not proof that a model can execute generated instructions |
+| **Agent framework** | Planning, task delegation, state management, and orchestration of one or more models and tools | Can coordinate lengthy authorized assessments or, when misused, intrusion workflows | An agent framework is not itself a foundation model or a guarantee of autonomy |
+| **Agent harness** | Runtime interfaces, tool adapters, context assembly, permissions, execution and feedback | Determines whether suggestions become terminal, browser, filesystem, or network actions | Tool availability does not mean the agent has unlimited permission or reliable judgment |
+
+### 4.1 Abliteration versus fine-tuning
+
+*Abliteration* is a term used for techniques that modify model representations associated with refusal behavior, often using directional interventions in activation or weight space. It is not synonymous with training a model to become more technically capable. A model may become more compliant while remaining equally error-prone—or become less reliable after modification. The term is used inconsistently across model releases, so publishers' claims of being “uncensored” or “abliterated” should not be treated as standardized evaluation results.
+
+*Fine-tuning* adapts model behavior through further training. A cybersecurity-oriented fine-tune might improve performance on legitimate malware triage, secure code review, protocol analysis, or vulnerability-report interpretation. It might also change the model's responses to high-risk requests. Whether either change occurs is an empirical question requiring matched evaluations against the base model.
+
+A model can be both fine-tuned and abliterated. These are not mutually exclusive categories.
+
+### 4.2 Jailbreak prompts versus locally modified models
+
+A jailbreak attempts to induce behavior through the input channel without altering the model's weights. A locally modified model may instead have had behavioral safeguards weakened before any prompt is entered. Both can affect observed refusal rates, but they present different mitigation problems. Prompt-injection defenses, input handling, and instruction hierarchies cannot be assumed to restore a safeguard removed from a local checkpoint.
+
+**Relevance to the XORTRON case study:** the researcher reports that the long interaction was driven mainly by code debugging rather than refusal circumvention. This should not be recast as a jailbreak success. It is an observation about the tested configuration's behavior, pending transcript review.
+
+### 4.3 Frameworks versus harnesses
+
+An **agent framework** typically supplies workflow abstractions: planners, worker roles, memory, task routing, and retry logic. A **harness** is the practical execution substrate: model invocation, context packaging, terminal or browser adapters, test runners, permissions, and feedback. Real projects frequently combine both, and vendors use the terms inconsistently.
+
+This distinction explains the relevance of ARTEX. A capable language model can suggest actions, but an agentic system can arrange for permitted tools to perform them and use the results to choose further actions. The consequential security boundary is therefore often in the harness: which credentials, hosts, files, and commands it can reach, and whether actions require human approval.
+
+### 4.4 Combinations and cumulative risk
+
+These approaches can be stacked. A specialized fine-tune may be modified to reduce refusals, instructed through ordinary or adversarial prompts, coordinated by a planning model, and connected to a tool harness. Each layer changes a different property. It would be misleading to claim that any particular combination is necessarily more effective or dangerous without controlled testing.
+
+A useful conceptual expression is:
+
+> **System-level risk is a function of demonstrated capability, safeguards, autonomy, tool permissions, environment, and operator intent.**
+
+This is a framework for analysis, **not** a numerical risk score or validated equation.
+
+### 4.5 How to evaluate them responsibly
+
+Single-prompt refusal rates measure only one dimension. A stronger evaluation would separate:
+
+1. **Compliance:** whether the model agrees to provide an answer.
+2. **Technical correctness:** whether benign reference tasks pass independent tests.
+3. **Multi-turn completion:** whether an extended interaction converges on a working benign artifact.
+4. **Human effort:** how much debugging, direction, and execution the researcher supplies.
+5. **Agent autonomy:** what percentage of authorized steps a tool-connected system completes independently.
+6. **Boundary compliance:** whether the harness respects host, filesystem, credential, and action restrictions.
+
+Comparisons should control for base model, quantization, prompt template, sampling parameters, context length, compute budget, and available tools. For high-risk capability evaluations, use non-deployable synthetic fixtures and publish redacted evidence rather than working malicious payloads.
+
+**Implication for this article:** XORTRON is the case study of extended, human-directed model assistance; ARTEX is the case study of operational orchestration observed in intrusions. The hypothetical frontier-model-plus-XORTRON configuration remains an untested research proposal.
+
+## 4. ARTEX: From model output to agentic execution
 
 ARTEX has been described in public security reporting as a multi-agent penetration-testing framework that coordinates language-model reasoning with security tools and iterative execution. Its significance is not a novel vulnerability class; it is the automation of task selection, tool use, interpretation of results, and subsequent actions.
 
 In a conventional scanner pipeline, operators choose tools and parameters, review results, and decide what to investigate next. An agentic system may perform some of that coordination, using a planner, specialized workers, shared state, and feedback from command outputs. This can shorten some cycles but can also introduce errors, duplicated work, unsafe actions, and unreliable conclusions.
 
-### 3.1 Publicly reported misuse
+### 4.1 Publicly reported misuse
 
 Google Threat Intelligence Group has publicly discussed ARTEX and related agentic offensive frameworks in the context of real-world malicious activity. An FBI advisory dated November 13, 2026 also addresses ARTEX-related threats. These sources should be consulted directly for the specific campaigns, dates, and attributed observations rather than treating every feature claimed by a framework as an observed attack capability.
 
 The existence of reported malicious use establishes that agentic security tooling is not exclusively a laboratory concern. It does **not** establish that every ARTEX deployment is malicious, that all reported intrusions were fully autonomous, or that any particular model was responsible for every operational decision.
 
-### 3.2 Architecture and failure modes
+### 4.2 Architecture and failure modes
 
 The most consequential design features of an agentic security system are often mundane engineering choices:
 
@@ -79,11 +136,11 @@ The most consequential design features of an agentic security system are often m
 
 These components can amplify legitimate assessment work. They can also turn model mistakes into executed commands. Concurrent workers may conflict, overwrite state, or independently repeat disruptive actions. Scope written in a prompt is not a substitute for network-level and credential-level restrictions.
 
-### 3.3 Source-code availability and supply-chain exposure
+### 4.3 Source-code availability and supply-chain exposure
 
 Public forks and repackaged distributions complicate governance after an original project is removed or altered. Security researchers should also treat prebuilt images and unofficial forks as untrusted software: an agent framework often receives extensive filesystem and network permissions, making a compromised distribution especially consequential.
 
-### 3.4 Confirmed ARTEX-linked incidents and FBI warning
+### 4.4 Confirmed ARTEX-linked incidents and FBI warning
 
 **FBI warning (November 13, 2026).** The FBI issued [FLASH-20261113-001, *Threat Overview of ARTEX Autonomous Penetration Testing Framework*](https://www.ic3.gov/CSA/2026/261113.pdf). It reported malicious use since at least August 2026 across multiple sectors and regions, with some intrusions reaching privileged access in under three hours. The FBI cited more than 1,600 publicly exposed ARTEX consoles in early November; this is **not** a count of confirmed malicious deployments. The advisory includes indicators of compromise and mitigation guidance.
 
@@ -97,17 +154,17 @@ Public forks and repackaged distributions complicate governance after an origina
 
 **What the evidence establishes.** Google documented ARTEX execution bursts of approximately **2–25 seconds**, including **27 events in 23 seconds** during cloud permission probing. It also reported noisy, iterative errors and possible interference between sub-agents. These incidents establish real-world misuse and acceleration of portions of intrusion workflows, **not universal full autonomy, universal success, or reliable stealth**. The FBI's warning is important because it independently recognizes the operational threat and provides defensive guidance. [Google/Mandiant](https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks) · [FBI](https://www.ic3.gov/CSA/2026/261113.pdf).
 
-## 4. XORTRON: Original researcher-reported case study
+## 5. XORTRON: Original researcher-reported case study
 
 The XORTRON model ecosystem is available through Hugging Face resources associated with the project. The exact checkpoint used in the experiment described here remains to be documented. This section is an original first-person research account supplied by the researcher, not an independently reproduced benchmark.
 
-### 4.1 Research question
+### 5.1 Research question
 
 The experiment examined whether a cybersecurity-oriented model could move beyond explaining an encoded JavaScript sample and assist with an extended, interconnected software-development workflow.
 
 The starting artifact was an **encoded cryptocurrency-drainer bookmarklet**. It is important to preserve that description: the experiment was not a broad evaluation of every malware category or every type of cybersecurity task.
 
-### 4.2 Reported sequence of assistance
+### 5.2 Reported sequence of assistance
 
 According to the researcher, XORTRON:
 
@@ -121,7 +178,7 @@ According to the researcher, XORTRON:
 
 The article deliberately does not reproduce payload code, evasion procedures, live endpoints, or deployment instructions. Those operational details are not necessary to evaluate the safety implications.
 
-### 4.3 Completion and human intervention
+### 5.3 Completion and human intervention
 
 The researcher reports that **the overall task was fully completed**. The interaction sometimes required multiple prompts and hours of back-and-forth. The principal source of human intervention was ordinary software debugging and correction of code mistakes, rather than repeated safety refusals or elaborate rewording to bypass safeguards.
 
@@ -129,7 +186,7 @@ This distinction matters. It suggests that, in the tested configuration, the lim
 
 The present evidence does not yet specify which components were executed together in a controlled environment, what test assertions established completion, or whether detection-evasion modifications measurably reduced detection rates. These points must be resolved before publication of a stronger empirical claim.
 
-### 4.4 What the experiment demonstrates—and what it does not
+### 5.4 What the experiment demonstrates—and what it does not
 
 **Supported by the researcher's account:** sustained assistance across reverse engineering, code modification, backend development, website templating, infrastructure planning, and debugging in one connected workflow.
 
@@ -137,13 +194,13 @@ The present evidence does not yet specify which components were executed togethe
 
 **Explicit scope limitation:** The cryptocurrency-drainer bookmarklet was the **only** malicious-tooling category personally tested in this investigation. The researcher considers it plausible that the model could assist with substantially more, but that is a hypothesis, not an experimental result.
 
-### 4.5 Why a single completed workflow is still relevant
+### 5.5 Why a single completed workflow is still relevant
 
 A single case study cannot establish population-level reliability. Nevertheless, it can identify a concrete capability worth testing. The reported progression from an encoded sample to an integrated set of software and infrastructure components is materially different from asking a model to summarize a malicious script.
 
 The most important observation is cumulative assistance: outputs that are individually partial can, through iteration and correction, contribute to a completed system. Evaluations that stop at one prompt may fail to measure this property.
 
-## 5. The next hypothesis: Frontier-model direction and orchestration
+## 6. The next hypothesis: Frontier-model direction and orchestration
 
 The researcher has **not** tested a configuration in which a frontier model directs XORTRON through an agentic orchestrator. The following discussion is a research hypothesis.
 
@@ -151,7 +208,7 @@ A frontier reasoning model might act as a planner and reviewer while a specializ
 
 But “more models” does not automatically mean “more capability.” Multi-agent systems can introduce coordination overhead, incompatible assumptions, context loss, hallucinated tool results, cost, and failure cascades. The relevant claim must be tested against a single-model baseline.
 
-### 5.1 Proposed controlled comparison
+### 6.1 Proposed controlled comparison
 
 A responsible evaluation could compare:
 
@@ -161,7 +218,7 @@ A responsible evaluation could compare:
 
 The tasks should use synthetic, non-deployable fixtures such as benign encoded JavaScript, mock service protocols, intentionally vulnerable local applications, and harmless client/server reconstruction exercises. All three conditions should have comparable compute budgets, task descriptions, and access to reference documentation.
 
-### 5.2 Measurements
+### 6.2 Measurements
 
 | Metric | Operational definition |
 | --- | --- |
@@ -176,35 +233,35 @@ The tasks should use synthetic, non-deployable fixtures such as benign encoded J
 
 A credible experiment should preregister pass/fail criteria, retain full logs, report failures alongside successes, and avoid comparing systems with unequal permissions.
 
-## 6. The broader cybersecurity implications
+## 7. The broader cybersecurity implications
 
-### 6.1 Lowering the coordination burden
+### 7.1 Lowering the coordination burden
 
 AI assistance can reduce the need to independently master every part of a complex technical project. The XORTRON case study is relevant because the reported workflow crossed several engineering boundaries: JavaScript analysis, backend development, website templating, and infrastructure guidance.
 
 It would be an overstatement to claim expertise is no longer required. Debugging, validation, and environmental setup still matter, and the researcher supplied meaningful human direction.
 
-### 6.2 Acceleration without guaranteed reliability
+### 7.2 Acceleration without guaranteed reliability
 
 Agentic execution may compress repeated cycles of tool use and feedback. That can benefit defensive triage and authorized testing, but can also increase the speed of harmful workflows. Faster execution is not the same as more accurate execution: unreliable automation can generate false positives, cause disruption, or waste resources.
 
-### 6.3 A dual-use challenge for defenders
+### 7.3 A dual-use challenge for defenders
 
 Security analysts benefit from automated code review, malware understanding, patch analysis, incident triage, and controlled penetration testing. Many of the underlying capabilities are the same ones that can be misused. Controls should therefore target concrete misuse risks and execution privileges rather than assuming that technical security knowledge is inherently illegitimate.
 
-### 6.4 Supply-chain and runtime risks
+### 7.4 Supply-chain and runtime risks
 
 Downloading an unfamiliar model, extension, tool adapter, or agent container creates a separate trust problem. Even a benign research goal can be compromised by a malicious dependency or an overprivileged tool environment. Model provenance, artifact verification, container isolation, and least-privilege credentials are foundational safeguards.
 
-## 7. Evaluating restrictions and safeguards
+## 8. Evaluating restrictions and safeguards
 
 The researcher argues that particularly capable models warrant stronger restrictions and should not necessarily be as widely available without meaningful safeguards. This article treats that as a policy position to evaluate against practical constraints and legitimate research needs.
 
-### 7.1 Model-release controls
+### 8.1 Model-release controls
 
 Pre-release misuse evaluations, staged access, provenance documentation, and restrictions on exceptionally high-risk releases may reduce some exposure. However, once open weights are widely distributed, downstream copies cannot reliably be recalled. Model cards and licenses alone are insufficient as technical safeguards.
 
-### 7.2 Runtime and orchestration controls
+### 8.2 Runtime and orchestration controls
 
 For agentic deployments, more directly enforceable controls include:
 
@@ -218,13 +275,13 @@ For agentic deployments, more directly enforceable controls include:
 
 These controls are relevant to both commercial systems and self-hosted research environments.
 
-### 7.3 A proportional approach
+### 8.3 A proportional approach
 
 Blanket restrictions on all cybersecurity models would impair defensive research, independent auditing, and legitimate software engineering. A more defensible approach evaluates the severity and reproducibility of demonstrated capabilities, the ease of misuse, the model's access to execution tools, and the effectiveness of available mitigations.
 
 The core question is not whether a model knows about cybersecurity, but what harmful outcomes it can materially enable under realistic conditions.
 
-## 8. Research limitations and evidence requirements
+## 9. Research limitations and evidence requirements
 
 This article is a working draft, not a controlled comparative study.
 
@@ -236,7 +293,7 @@ This article is a working draft, not a controlled comparative study.
 
 Before a final release, the case study should document the model repository and revision, inference parameters, environment, prompt counts, duration, functional acceptance criteria, and a redacted evidence trail. If possible, a separate benign replication should test whether the model can perform analogous multi-component reconstruction tasks without distributing harmful software.
 
-## 9. Recommendations
+## 10. Recommendations
 
 For **model developers**, assess extended multi-turn behavior and cumulative assistance, not only single-turn refusal rates. Publish meaningful limitations and disclose the effect of tool access.
 
@@ -248,7 +305,7 @@ For **policymakers and model distributors**, consider risk-tiered evaluations an
 
 For **organizations deploying AI agents**, apply least privilege, auditability, approval gates, and tested incident-response procedures before allowing autonomous access to production environments.
 
-## 10. Conclusion
+## 11. Conclusion
 
 The XORTRON experiment, as reported by the researcher, illustrates a potentially consequential form of cumulative AI assistance: a single cybersecurity-oriented model contributed to an extended workflow that reportedly progressed from an encoded cryptocurrency-drainer bookmarklet to reconstructed code, supporting infrastructure, and deployment guidance. The experiment's scope was narrow and its evidence remains to be independently verified. It does not establish that XORTRON can autonomously conduct cyberattacks or that it has demonstrated comparable results across other malicious categories.
 
@@ -271,7 +328,7 @@ The links below identify primary sources or project resources. Exact quotations,
 5. XORTRON project resources on Hugging Face: https://huggingface.co/xortron
 6. ARTEX community source code (verify maintainer and revision before citing implementation details): https://github.com/CyberRoute/artex
 
-## Editorial checklist for v0.2
+## Editorial checklist for publication
 
 - [ ] Identify the exact XORTRON checkpoint, quantization, and inference environment.
 - [ ] Add experiment dates, prompt count, elapsed time, and hardware details.
@@ -282,3 +339,6 @@ The links below identify primary sources or project resources. Exact quotations,
 - [ ] Independently verify dates and claims in ARTEX threat reporting.
 - [ ] Add a controlled benign replication and, if feasible, multi-run statistics.
 - [ ] Clarify whether publication is intended as an opinion article, case study, or technical research report.
+- [ ] Add primary technical references for abliteration, fine-tuning, prompt injection, and agent evaluation; distinguish published research from model-card marketing.
+- [ ] Verify that ARTEX incidents are not double-counted across vendor reports and check every quantitative claim against primary sources.
+- [ ] Obtain permission to publish any original experiment artifacts and redact credentials, endpoints, personal information, and operationally harmful material.
