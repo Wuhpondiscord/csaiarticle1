@@ -220,7 +220,15 @@ A frontier reasoning model might act as a planner and reviewer while a specializ
 
 But “more models” does not automatically mean “more capability.” Multi-agent systems can introduce coordination overhead, incompatible assumptions, context loss, hallucinated tool results, cost, and failure cascades. The relevant claim must be tested against a single-model baseline.
 
-### 6.1 Proposed controlled comparison
+### 6.1 Researcher's assessment of automation potential
+
+Based on the relatively limited human intervention required during the original XORTRON experiment, **the researcher strongly believes that the same general workflow could be automated, or mostly automated, if the model were integrated into an agentic framework with a suitable execution harness**. The researcher's reasoning is that most interventions involved reporting code errors, requesting revisions, and testing integration—activities that a harness could potentially perform through bounded test execution and feedback.
+
+**This is the researcher's assessment, not a demonstrated result.** The original experiment was human-directed. No agentic XORTRON configuration was tested, and the article makes no claim that it could autonomously conduct an attack, overcome operational restrictions, or achieve the same outcome reliably. A frontier planning model might improve task coordination, but this too remains untested.
+
+The appropriate follow-up is a controlled, authorized evaluation using benign stand-ins and restricted tools to measure how much human effort an orchestrator actually eliminates.
+
+### 6.2 Proposed controlled comparison
 
 A responsible evaluation could compare:
 
@@ -230,7 +238,7 @@ A responsible evaluation could compare:
 
 The tasks should use synthetic, non-deployable fixtures such as benign encoded JavaScript, mock service protocols, intentionally vulnerable local applications, and harmless client/server reconstruction exercises. All three conditions should have comparable compute budgets, task descriptions, and access to reference documentation.
 
-### 6.2 Measurements
+### 6.3 Measurements
 
 | Metric | Operational definition |
 | --- | --- |
