@@ -4,17 +4,59 @@
 **Research article — From Prompts to Payloads**  
 **Author:** user4545456 
 **Date:** November 19, 2026  
-**Status:** Draft for review; not a peer-reviewed study
+**Manuscript type:** Exploratory qualitative case study and documentary analysis  
+**Status:** Pre-submission manuscript; empirical verification and source audit pending  
+**Peer-review status:** Not peer reviewed
 
 > **Evidence notice:** This article combines one researcher-reported XORTRON experiment with publicly reported observations about agentic security frameworks. The experiment's underlying transcripts, model identifier, artifacts, and independent validation are not yet published. Descriptions of successful completion reflect the researcher's account, not independent verification. Hypotheses about other uses of XORTRON or frontier-model orchestration are explicitly labeled as such.
 
 ## Abstract
 
-Cybersecurity-focused language models and agentic execution frameworks are converging. Open-weight models can be downloaded, modified, and operated without a hosted provider's runtime controls, while orchestration frameworks can connect language-model reasoning to terminals, scanners, browsers, and persistent state. Together, these capabilities raise questions about the adequacy of safety evaluations centered on isolated prompts and the practical enforceability of restrictions on distributed model weights.
+**Background:** Safety assessments of cybersecurity-oriented language models frequently emphasize isolated prompts, whereas actual use may involve repeated debugging, tool access, and multi-component integration. Public reporting on the ARTEX framework suggests that agentic orchestration is already relevant to observed intrusions.
 
-This article examines three overlapping developments: the wider ecosystem of cybersecurity-oriented AI models; the ARTEX agentic penetration-testing framework and publicly reported misuse; and a researcher-reported case study involving an XORTRON model. In that case study, the researcher supplied an encoded cryptocurrency-drainer bookmarklet and reports that, across an extended conversation, XORTRON assisted in decoding and reconstructing it, modifying its behavior, generating a command-and-control backend, preparing decoy-site templates, and providing infrastructure guidance. The researcher reports completing the workflow, with human intervention principally devoted to debugging rather than overcoming refusals. **This cryptocurrency-drainer workflow was the only malicious-tooling category personally tested by the researcher.** No inference about demonstrated performance in other malicious categories follows from that single test.
+**Objective:** To distinguish model-level modification from agentic execution and examine whether an extended, researcher-directed interaction with a cybersecurity-oriented model can produce cumulative assistance beyond single-turn response assessments.
 
-A further hypothesis considers whether a frontier reasoning model coordinating a specialized cybersecurity model through an agentic orchestrator could reduce human intervention and increase task completion. That configuration was not tested. The article argues for evaluation of entire workflows, including tool permissions and cumulative assistance, while recognizing the legitimate uses of open security research and the limitations of distribution controls.
+**Methods:** This exploratory study combines (i) a retrospective, single-case qualitative account of the researcher's XORTRON interaction and isolated-laboratory validation, and (ii) documentary analysis of publicly attributed ARTEX incidents. The XORTRON account is not independently replicated; underlying transcripts, checkpoint identifiers, and test logs have not yet been deposited. The ARTEX evidence is drawn from named public reporting rather than direct incident-response access.
+
+**Results:** The researcher reports that XORTRON assisted with interpreting an encoded cryptocurrency-drainer bookmarklet, iteratively developing associated components, building a functional cryptocurrency-analytics decoy and rules-based website generator, and preparing notification and infrastructure integrations. The final configuration was reportedly tested in an isolated lab rather than deployed to the recommended external provider. The researcher reports that debugging—not repeated refusal circumvention—accounted for most human interventions. These are self-reported observations; quantitative success rates, detection-evasion effectiveness, and independent replication are unavailable. Public reports separately describe ARTEX-associated intrusion activity; attribution and counts require source-level verification.
+
+**Conclusions:** The case motivates evaluations of cumulative human–model assistance and execution permissions, but does not establish autonomous offensive capability or generalizable success. The hypothesis that an agentic harness could automate much of the observed workflow remains untested.
+
+**Keywords:** cybersecurity AI; open-weight models; agentic systems; model evaluation; qualitative case study; ARTEX; XORTRON; AI safety
+
+## Research questions and study design
+
+**RQ1 — Cumulative assistance:** What types of work did the researcher report completing with XORTRON across an extended interaction, and where was human intervention required?
+
+**RQ2 — Mechanisms:** How do model fine-tuning, refusal modification, prompt-level attacks, agent frameworks, and execution harnesses differ in the risks they introduce?
+
+**RQ3 — External validity:** What does publicly attributed ARTEX incident reporting establish about the operational use of agentic systems, and what remains uncertain?
+
+**RQ4 — Future evaluation:** What controlled tests would be required to evaluate the researcher's hypothesis that an agentic harness could automate or mostly automate a comparable workflow?
+
+### Study design and unit of analysis
+
+This is a **retrospective, exploratory single-case study** supplemented by a **narrative documentary review**, not a controlled trial, systematic literature review, prevalence estimate, or benchmark. The primary unit of analysis is one researcher–model interaction and its reported integration workflow. The documentary unit is a set of public incident reports; multiple vendors may describe overlapping campaigns.
+
+The primary case is reconstructed from the researcher's narrative supplied after the experiment. It is vulnerable to recall and selection bias. The original prompts, model outputs, timestamps, revisions, tool logs, and artifacts were not available for independent coding at the time of drafting. Accordingly, terms such as *worked*, *completed*, and *tested* in the case study mean **reported by the researcher** unless specifically supported by a deposited record.
+
+### Data sources and extraction protocol
+
+**Primary case:** researcher account describing the starting encoded sample, iterative server and front-end development, revisions, website generation, RPC troubleshooting, notification integration, hosting recommendations, and isolated-lab test. No other malicious-tooling category was personally tested.
+
+**Secondary case material:** named FBI, vendor threat-intelligence, and incident-response publications cited below. For a submission-grade review, each numerical or attribution claim should be entered into a source ledger recording: document title, publication date, URL, exact supporting passage or page, actor identifier, observed action, confidence wording, and whether another report describes the same campaign. That ledger is **not yet completed**.
+
+**Coding approach:** observations are organized by task stage, model contribution, human contribution, environment, claimed outcome, and verification status. No inter-rater reliability is claimed because there was no independent second coder.
+
+### Outcome definitions and missing measurements
+
+**Reported functional completion** means the researcher judged the integrated laboratory workflow functional; it is **not** an independently audited success measure. **Autonomy** would require evidence that an agent initiated and completed specified steps without human direction; no such experiment occurred. **Evasion effectiveness** would require a predefined detector set, baseline, repeated trials, and measured outcomes; none are reported. **End-to-end notification success** should be claimed only if an event's delivery can be demonstrated with redacted lab evidence; that proof has not been supplied.
+
+The study reports no prompt counts, latency distributions, model-to-human work ratios, success-rate confidence intervals, or statistical significance tests. Inventing those measures from recollection would be methodologically unsound.
+
+### Ethics and containment
+
+The original material involved malicious-functionality research. This manuscript does not include functional payloads, exfiltration instructions, live endpoints, credentials, or instructions to operationalize the system. The researcher reports using an isolated environment for the final test, but no independent verification of network isolation or authorization has been provided. Any future replication should use synthetic wallet events, non-deployable stand-ins, test-only identities, strict network controls, and an approved scope. Whether formal institutional ethics review is applicable has not been determined; no approval is claimed.
 
 ## 1. Introduction: Why the unit of analysis must change
 
@@ -336,6 +378,35 @@ A frontier-model planner directing a specialized model is a plausible next resea
 **The central security challenge is the convergence of capable models, iterative workflows, and operational tool access.** Meaningful safeguards and evaluations must address the complete system—not only what a model says in one response.
 
 ---
+
+## Research transparency and publication declarations
+
+**Data availability:** The underlying XORTRON transcripts, exact model/checkpoint identifier, generated artifacts, and lab logs are not publicly available with this manuscript. A sanitized evidence package would be needed to permit independent scrutiny; unsafe executable components should not be distributed.
+
+**Code availability:** No executable research code is released with this manuscript. The GitHub article is a manuscript repository, not a replication package.
+
+**Funding:** Not reported; author confirmation required.
+
+**Competing interests:** Not reported; author declaration required.
+
+**Author contributions:** The named author supplied the experimental account and research interpretation. Drafting and editorial assistance involved an AI assistant; the author should verify factual claims and disclose AI assistance in accordance with the destination venue's policy. The AI assistant is not listed as an author.
+
+**Ethics and authorization:** Formal approval, institutional affiliation, and detailed authorization records have not been supplied. Do not infer ethics-board approval or authorization beyond what can be documented.
+
+**Limitations of documentary evidence:** The study relies on publicly accessible vendor and agency accounts and has not independently examined incident artifacts. Vendor attribution and campaign boundaries may change as investigations progress.
+
+## Required items before scholarly submission
+
+- [ ] Identify the exact XORTRON model, repository revision, quantization, inference stack, prompt template, and relevant sampling settings.
+- [ ] Preserve and redact a timestamped interaction transcript and revision history; separate contemporaneous evidence from retrospective recollection.
+- [ ] Supply a benign laboratory replication with predefined acceptance tests, negative controls, and logs demonstrating each claimed functional result.
+- [ ] Establish whether the notification path was verified end-to-end using synthetic events; do not imply it without evidence.
+- [ ] Document the lab topology, network isolation, test-only credentials, software versions, and authorization.
+- [ ] Complete an incident-source ledger and fact-check all ARTEX statistics, attribution, dates, and overlapping campaigns against primary documents.
+- [ ] Add a reproducible documentary-search strategy, inclusion criteria, search date, and a formal citation style if presenting the secondary analysis as a literature review.
+- [ ] Add primary technical literature supporting claims about refusal-direction ablation, fine-tuning, prompt injection, and agent evaluation.
+- [ ] Obtain author confirmation of funding, conflicts of interest, ethics applicability, and AI-assistance disclosure.
+- [ ] Select a target venue and format the manuscript to its submission, reference, and data-availability requirements.
 
 ## Sources and further reading
 
